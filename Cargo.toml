@@ -5,5 +5,7 @@ members = [
 ]
 
 [workspace.dependencies]
-sauron = "0.60.5"
+#sauron = "0.60.5"
+sauron = { path = "../sauron"}
+sauron-html-parser = { path = "../sauron/crates/html-parser" }
 log = "0.4"
