@@ -33,7 +33,7 @@ fn main() -> anyhow::Result<()> {
                     path_buf.set_file_name(&new_filename);
                     println!("file: {}", file.display());
                     println!("-->>> {}", path_buf.display());
-                    //std::fs::rename(file, new_filename)?;
+                    std::fs::rename(file, path_buf)?;
                 }
             }
         }
