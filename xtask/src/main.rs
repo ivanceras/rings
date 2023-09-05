@@ -1,7 +1,7 @@
 use anyhow::{anyhow, Result};
 use clap::{Parser, Subcommand};
 use sauron::Render;
-use sauron_html_parser::parse_simple;
+use sauron_html_parser::parse_html;
 use xshell::{cmd, Shell};
 
 const RESERVED_KEYWORDS: &[&str] = &["move", "box", "type"];
@@ -22,7 +22,7 @@ enum Commands {
 }
 
 fn prettify_html(content: &str) -> Result<String> {
-    if let Some(node) = parse_simple::<()>(&content)? {
+    if let Some(node) = parse_html::<()>(&content)? {
         let mut buffer = String::new();
         node.render_with_indent(&mut buffer, 2, false)?;
         Ok(buffer)
