@@ -1,6 +1,6 @@
 [package]
 name = "rings"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["Jovansonlee Cesar <ivanceras@gmail.com>"]
 description = "Collections of icons that is ready to be used with sauron web framework"
