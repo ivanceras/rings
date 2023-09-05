@@ -1,8 +1,10 @@
+#![deny(warnings)]
+
 use anyhow::{anyhow, Result};
 use clap::{Parser, Subcommand};
 use sauron::Render;
 use sauron_html_parser::parse_html;
-use xshell::{cmd, Shell};
+use xshell::Shell;
 
 const RESERVED_KEYWORDS: &[&str] = &["move", "box", "type"];
 
