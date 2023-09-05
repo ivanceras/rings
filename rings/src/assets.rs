@@ -361,7 +361,7 @@ pub fn bookmark<MSG>() -> Node<MSG>{
    }
 }
 
-pub fn box<MSG>() -> Node<MSG>{
+pub fn r#box<MSG>() -> Node<MSG>{
    node!{
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box">
       <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
@@ -1666,7 +1666,7 @@ pub fn mouse_pointer<MSG>() -> Node<MSG>{
    }
 }
 
-pub fn move<MSG>() -> Node<MSG>{
+pub fn r#move<MSG>() -> Node<MSG>{
    node!{
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-move">
       <polyline points="5 9 2 12 5 15"></polyline>
@@ -2484,7 +2484,7 @@ pub fn twitter<MSG>() -> Node<MSG>{
    }
 }
 
-pub fn type<MSG>() -> Node<MSG>{
+pub fn r#type<MSG>() -> Node<MSG>{
    node!{
        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-type">
       <polyline points="4 7 4 4 20 4 20 7"></polyline>

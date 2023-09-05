@@ -4,6 +4,8 @@ use sauron::Render;
 use sauron_html_parser::parse_simple;
 use xshell::{cmd, Shell};
 
+const RESERVED_KEYWORDS: &[&str] = &["move", "box", "type"];
+
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
@@ -65,8 +67,13 @@ fn main() -> Result<()> {
             buffer += "\n";
             for file in svg_files {
                 let filestem = file.file_stem().expect("must have a file stem");
-                let fn_name = filestem.to_str().expect("must be a str");
                 println!("Processing {:?}...", file.file_name());
+                let fn_name = filestem.to_str().expect("must be a str");
+                let fn_name = if RESERVED_KEYWORDS.contains(&fn_name) {
+                    format!("r#{fn_name}")
+                } else {
+                    fn_name.to_string()
+                };
                 let content = sh.read_file(&file)?;
                 let pretty = prettify_html(&content)?;
                 let code = &format!(
