@@ -31,7 +31,9 @@ fn main() -> anyhow::Result<()> {
                     let filename = filename.to_str().expect("must be a valid filename");
                     let new_filename = filename.replace("-", "_");
                     path_buf.set_file_name(&new_filename);
-                    std::fs::rename(file, new_filename)?;
+                    println!("file: {}", file.display());
+                    println!("-->>> {}", path_buf.display());
+                    //std::fs::rename(file, new_filename)?;
                 }
             }
         }
