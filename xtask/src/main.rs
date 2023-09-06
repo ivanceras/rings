@@ -6,7 +6,7 @@ use sauron::Render;
 use sauron_html_parser::parse_html;
 use xshell::Shell;
 
-const RESERVED_KEYWORDS: &[&str] = &["move", "box", "type"];
+const RESERVED_KEYWORDS: &[&str] = &["box", "macro", "move", "type"];
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -71,8 +71,15 @@ fn main() -> Result<()> {
                 let filestem = file.file_stem().expect("must have a file stem");
                 println!("Processing {:?}...", file.file_name());
                 let fn_name = filestem.to_str().expect("must be a str");
+                let starts_digit = if let Some(bytes) = fn_name.as_bytes().get(0) {
+                    bytes.is_ascii_digit()
+                } else {
+                    false
+                };
                 let fn_name = if RESERVED_KEYWORDS.contains(&fn_name) {
                     format!("r#{fn_name}")
+                } else if starts_digit {
+                    format!("_{fn_name}")
                 } else {
                     fn_name.to_string()
                 };
